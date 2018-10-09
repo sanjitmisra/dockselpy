@@ -13,13 +13,14 @@ BASE_URL = 'https://www.amazon.in'
 
 
 def chrome_test():
-    # display = Display(visible=0, size=(800, 600))
-    # display.start()
+    display = Display(visible=0, size=(800, 600))
+    display.start()
     raw_timestamp_start = time.time()
     formatted_timestamp = datetime.datetime.fromtimestamp(raw_timestamp_start).strftime('%Y-%m-%d %H:%M:%S')
     logging.info('Test started at: %s', formatted_timestamp)
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox') 
+   #chrome_options.add_argument('--headless')
 
     chrome_options.add_experimental_option('prefs', {
         'download.default_directory': os.getcwd(),
@@ -38,8 +39,8 @@ def chrome_test():
     raw_timestamp_end = time.time()
     formatted_timestamp = datetime.datetime.fromtimestamp(raw_timestamp_end).strftime('%Y-%m-%d %H:%M:%S')
     logging.info('Test completed at: %s', formatted_timestamp)
-    # display.stop()
-
+    display.stop()
+    time.sleep(3600)
 
 if __name__ == '__main__':
     chrome_test()

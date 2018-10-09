@@ -1,10 +1,11 @@
 import os
 import logging
-
+import time
 from pyvirtualdisplay import Display
 from selenium import webdriver
 
 logging.getLogger().setLevel(logging.INFO)
+logging.basicConfig(filename='execution.log')
 
 BASE_URL = 'http://www.example.com/'
 
@@ -75,11 +76,11 @@ def phantomjs_example():
 
     browser.quit()
     display.stop()
-
+    time.sleep(4800)
 
 
 
 if __name__ == '__main__':
-    chrome_example()
-    firefox_example()
+   # chrome_example()
+   # firefox_example()
     phantomjs_example()

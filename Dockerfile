@@ -1,6 +1,7 @@
 FROM ubuntu:xenial
 
 RUN apt-get update && apt-get install -y \
+    nano \
     python3 python3-pip \
     libgconf2-4 libnss3-1d libxss1 \
     fonts-liberation libappindicator1 xdg-utils \
@@ -47,5 +48,5 @@ WORKDIR /$APP_HOME
 
 COPY . $APP_HOME/
 
-CMD tail -f /dev/null
-# CMD python3 example.py
+CMD python3 BaseTest.py
+#CMD tail -f /dev/null
